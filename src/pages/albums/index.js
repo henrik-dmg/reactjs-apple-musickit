@@ -43,9 +43,12 @@ class Albums extends Component {
                                 { this.props.albumsProvider.albums.map((album, index)=>{
                                     let w = 118;
                                     let h = 118;
-                                    let url = album.attributes.artwork.url;
-                                    url = url.replace("{w}",w);
-                                    url = url.replace("{h}",h);
+                                    var url = "https://apple.com/favicon.ico"
+                                    if (album.attributes.artwork) {
+                                        url = album.attributes.artwork.url;
+                                        url = url.replace("{w}",w);
+                                        url = url.replace("{h}",h);
+                                    }
                                     return <Route key={index} render={({history}) => {
                                         return <a href={`/albums/${album.id}`}>
                                             <div className="result">
@@ -94,9 +97,12 @@ class Albums extends Component {
                                 { this.props.playlistsProvider.playlists.map((playlist, index)=>{
                                     let w = 118;
                                     let h = 118;
-                                    let url = playlist.attributes.artwork.url;
-                                    url = url.replace("{w}",w);
-                                    url = url.replace("{h}",h);
+                                    var url = "https://apple.com/favicon.ico"
+                                    if (playlist.attributes.artwork) {
+                                        url = playlist.attributes.artwork.url;
+                                        url = url.replace("{w}",w);
+                                        url = url.replace("{h}",h);
+                                    }
                                     return <Route key={index} render={({history}) => {
                                         return <a href={`/playlists/${playlist.id}`}>
                                             <div className="result">
